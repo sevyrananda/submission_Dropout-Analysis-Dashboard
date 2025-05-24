@@ -15,19 +15,8 @@ Adapun permasalahan bisnis yang dihadapi adalah tingginya Dropout (DO) rate, yan
 
 Sumber data: [Dataset Student](https://github.com/dicodingacademy/dicoding_dataset/tree/main/students_performance)
 
-Setup environment:
-```
-Berikut langkah-langkah untuk mempersiapkan environment dan akses dashboard:
-1. Melakukan install library yang akan digunakan dengan perintah
-pip install -r requirements.txt
-2. Menjalankan `notebook.ipynb`
-   - Pastikan dependensi, packages, library yang dibutuhkan sudah tersedia (lihat file `requirements.txt` untuk melihat dependensi yang dibutuhkan).
-   - Jalankan seluruh isi file `notebook.ipynb` menggunakan Google Colab/Jupyter Notebook untuk melihat hasil analisis data, temuan, dan insight yang diperoleh.
-3. Buka link Dashboard (bisa dilihat pada link dibawah ini atau run streamlit)
-   - 
-```
-
 ## 📊 Business Dashboard
+**Akses dashboard online** : 
 
 Dashboard interaktif dibangun menggunakan **Streamlit** dengan tujuan utama:
 - Menganalisis penyebab **tingginya angka dropout** mahasiswa.
@@ -67,11 +56,70 @@ Proyek ini juga menyertakan **prototype sistem prediksi dropout mahasiswa** berb
 - Nilai semester 1 dan 2
 
 ## ✅ Conclusion
+## 1. Faktor (Atribut) yang Paling Mempengaruhi Status Kelulusan
 
-Melalui analisis data dan visualisasi pada dashboard ini, dapat disimpulkan bahwa:
-- **Dropout rate cukup tinggi** pada jurusan-jurusan tertentu seperti *Informatics Engineering*, *Tourism*, dan *Social Service*.
-- Mahasiswa yang memiliki **nilai semester 1 rendah**, **tidak membayar biaya kuliah tepat waktu**, atau **memiliki kebutuhan khusus**, menunjukkan kecenderungan lebih tinggi untuk dropout.
-- Mahasiswa penerima **beasiswa** memiliki tingkat kelulusan lebih baik dibanding non-beasiswa.
+Dashboard menunjukkan bahwa faktor-faktor berikut sangat berpengaruh terhadap kelulusan mahasiswa:
+
+- 🎓 **Beasiswa**: Mahasiswa penerima beasiswa memiliki tingkat kelulusan yang jauh lebih tinggi dibanding non-penerima.
+- 📉 **Nilai Akademik**: Rata-rata nilai semester 1 & 2 yang rendah sangat berkorelasi dengan risiko dropout.
+- 💰 **Status Keuangan**:
+  - Mahasiswa dengan **tunggakan pembayaran** dan **biaya kuliah tidak lengkap** lebih banyak yang dropout.
+- 👶 **Usia Saat Masuk**: Mahasiswa dengan usia terlalu muda atau terlalu tua cenderung memiliki risiko dropout lebih tinggi.
+
+📌 **Kesimpulan**: Faktor dominan penyebab dropout adalah **nilai akademik rendah**, **tidak menerima beasiswa**, dan **masalah keuangan**.
+
+---
+
+## 2. Persentase Dropout dan Kelulusan Mahasiswa
+
+| Status         | Jumlah | Persentase (%) |
+|----------------|--------|----------------|
+| Dropout        | 1421   | 32.12%         |
+| Enrolled       | 794    | 17.96%         |
+| Graduated      | 2209   | 49.95%         |
+| **Total**      | 4424   | 100%           |
+
+📌 **Kesimpulan**: Hampir **1 dari 3 mahasiswa mengalami dropout**, sementara **sekitar setengah berhasil lulus**.
+
+---
+
+## 3. Hubungan Status Beasiswa dengan Kelulusan
+
+- Dari total penerima beasiswa:
+  - ✅ 835 **lulus**
+  - ❌ 134 **dropout**
+
+📌 **Kesimpulan**: Mahasiswa penerima beasiswa memiliki **kemungkinan besar untuk lulus**, menunjukkan **dampak positif program beasiswa** dalam mencegah dropout.
+
+---
+
+## 4. Pengaruh Nilai Masuk terhadap Kelulusan
+
+- Nilai masuk tinggi dan diikuti dengan performa baik di semester 1 & 2 → cenderung **lulus**
+- Nilai masuk rendah + performa akademik anjlok → **dropout**
+
+📌 **Kesimpulan**: **Nilai masuk** menjadi indikator awal yang penting, apalagi bila konsisten dengan performa awal kuliah.
+
+---
+
+## 5. Jurusan dengan Tingkat Dropout Tertinggi
+
+Berikut adalah **Top 5 jurusan dengan dropout rate tertinggi**:
+
+| Jurusan                             | Dropout Rate |
+|------------------------------------|--------------|
+| Biofuel Production Technologies     | 66.67%       |
+| Equiniculture                       | 55.32%       |
+| Informatics Engineering             | 51.21%       |
+| Management (evening attendance)     | 50.71%       |
+| Basic Education                     | 44.27%       |
+
+📌 **Kesimpulan**: Jurusan-jurusan ini memerlukan **evaluasi kurikulum, dukungan tambahan, atau intervensi khusus** untuk menekan angka dropout.
+
+---
+
+## ✅ Kesimpulan Umum
+Dashboard ini berhasil menjawab seluruh pertanyaan penelitian dengan **visualisasi data yang kuat dan actionable insight**, serta memberikan dasar pengambilan keputusan untuk **menekan angka dropout** di Jaya Jaya Institute.
 
 ### 🎯 Rekomendasi Action Items
 

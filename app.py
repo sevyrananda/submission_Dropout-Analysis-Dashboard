@@ -396,24 +396,28 @@ if add_selectbox == "Prediction":
         with col1:
             course_list = list(data.Course_Label.unique())
             course_list.sort()
-            course_selected = st.selectbox('🎓 Pilih Jurusan', course_list)
+            course_selected = st.selectbox('🎓 Pilih Course', course_list, help="Ubah jika perlu dengan memilih course yang ada pada dropdown sesuai course Anda")
         with col2:
-            admgrade_selected = st.number_input("📝 Nilai Tes Masuk", value=0.0, step=0.1, min_value=0.0, max_value=200.0)
+            admgrade_selected = st.number_input("📝 Nilai Tes Masuk", value=0.0, step=0.1, min_value=0.0, max_value=100.0, help="Masukkan nilai antara 0 hingga 100")
 
         reverse_mapping = {v: k for k, v in category_mapping.items()}
         course_code = reverse_mapping[course_selected]
         time_selected = 0 if course_code in [9991, 8014] else 1
 
-        col3, col4 = st.columns(2)
+        col3, col4, col5 = st.columns(3)
         with col3:
-            gender_selected = st.selectbox("🚻 Gender", ['Male', 'Female'])
+            gender_selected = st.selectbox("🚻 Gender", ['Male', 'Female'], help="Ubah jika perlu gender dengan memilih Female (Perempuan) dan Male (Laki-laki)")
             gender_selected = 1 if gender_selected == 'Male' else 0
 
         with col4:
-            age_selected = st.number_input("🎂 Usia Saat Masuk", min_value=17, max_value=70, step=1)
+            age_selected = st.number_input("🎂 Usia Saat Masuk", min_value=17, max_value=70, step=1, help="Masukkan usia antara 17 hingga 70 tahun")
+
+        with col5:
+            attendance = st.selectbox("Tipe Kehadiran", ["Daytime", "Evening"])
+            attendance_code = 0 if attendance == "Daytime" else 1
 
     with st.container(border=True):
-        st.subheader("💡 Faktor Risiko Tambahan")
+        st.subheader("💡 Faktor Risiko Tambahan", help="Ubah jika perlu masing-masing faktor tambahan yang ada di bawah ini dengan Yes atau No")
 
         col1, col2, col3, col4 = st.columns(4)
 
@@ -438,9 +442,9 @@ if add_selectbox == "Prediction":
         col1, col2 = st.columns(2)
 
         with col1:
-            grade1_selected = st.number_input("Semester 1", value=0.0, step=0.1, min_value=0.0, max_value=20.0)
+            grade1_selected = st.number_input("Semester 1", help="Masukkan nilai antara 0 hingga 100", value=0.0, step=0.1, min_value=0.0, max_value=100.0)
         with col2:
-            grade2_selected = st.number_input("Semester 2", value=0.0, step=0.1, min_value=0.0, max_value=20.0)
+            grade2_selected = st.number_input("Semester 2", help="Masukkan nilai antara 0 hingga 100", value=0.0, step=0.1, min_value=0.0, max_value=100.0)
 
     st.markdown('<style>div.stButton > button {margin: 0 auto; display: block; background: #003f5c; color: white; padding: 0.6em 2em; font-weight: bold;}</style>', unsafe_allow_html=True)
     if st.button("🔍 Prediksi Sekarang"):
